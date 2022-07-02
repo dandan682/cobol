@@ -1,4 +1,8 @@
-.DS*
+# Ignore all
 *
-!/**/
+# Unignore all with extensions
 !*.*
+# Unignore all dirs
+!*/
+# Ignore .DS_Store
+.DS_Store
