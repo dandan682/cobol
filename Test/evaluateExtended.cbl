@@ -2,8 +2,8 @@
        PROGRAM-ID.     COLOUR.
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       01 COLOUR-1                 PIC A(6). 
-       01 COLOUR-2                 PIC A(6).
+       01 COLOUR-1           PIC A(6). 
+       01 COLOUR-2           PIC A(6).
        PROCEDURE DIVISION. 
        INPUT-COLOURS.
            DISPLAY 'Enter FIRST primary colour'
