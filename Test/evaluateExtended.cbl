@@ -1,5 +1,5 @@
        IDENTIFICATION DIVISION. 
-       PROGRAM-ID.                 COLOUR.
+       PROGRAM-ID.     COLOUR.
        DATA DIVISION.
        WORKING-STORAGE SECTION.
        01 COLOUR-1                 PIC A(6). 
