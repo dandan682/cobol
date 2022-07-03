@@ -7,6 +7,7 @@
        01  STUDENT-MAARK-2            PIC 999.
        01  A                          PIC 99.
        PROCEDURE DIVISION.
+      *    EVALUATE COMPLEJO
            DISPLAY 'ENTER STUDENT NAME'
            ACCEPT STUDENT-NAME
            DISPLAY 'GRADE 1:'
@@ -20,6 +21,7 @@
               WHEN 70 THRU 100  DISPLAY 'FIRST CLASS'
               WHEN OTHER        DISPLAY 'PROG OR DATA ERROR!'
            END-EVALUATE
+      *    EVALUATE SIMPLE
            DISPLAY 'VALUE OF A:'
            ACCEPT A
            EVALUATE TRUE 
