@@ -23,8 +23,9 @@
            MOVE 630 TO STORE-SALES (3 3)
            MOVE 670 TO STORE-SALES (3 4)
       *
-           PERFORM UNTIL COUNT-I >= 4
-              PERFORM UNTIL COUNTER >= 5
+           PERFORM UNTIL COUNTER-I >= 4
+              MOVE 1 TO COUNTER-J
+              PERFORM UNTIL COUNTER-J >= 5
                  DISPLAY STORE-SALES (COUNTER-I  COUNTER-J)
                  ADD 1 TO COUNTER-J
               END-PERFORM
