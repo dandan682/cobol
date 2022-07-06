@@ -17,6 +17,10 @@
            MOVE 530 TO STORE-SALES (2 2)
            MOVE 550 TO STORE-SALES (2 3)
            MOVE 560 TO STORE-SALES (2 4)
+           MOVE 560 TO STORE-SALES (3 1)
+           MOVE 560 TO STORE-SALES (3 2)
+           MOVE 560 TO STORE-SALES (3 3)
+           MOVE 560 TO STORE-SALES (3 4)
       *
            PERFORM UNTIL COUNTER >= 5
               DISPLAY STORE-SALES (1 COUNTER)
