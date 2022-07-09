@@ -19,7 +19,7 @@
        FILE SECTION. 
        FD  EMPLOYEE-VS-FILE.
        01  EMPLOYEE.
-           05 EMP-ID               PIC 9(04),
+           05 EMP-ID               PIC 9(04).
            05 EMP-LAST-NAME        PIC X(30).
            05 EMP-FIRST-NAME       PIC X(30).
            05 EMP-SERVICE-YEARS    PIC 9(02).
@@ -44,7 +44,7 @@
            DISPLAY 'COBVS1 - SAMPLE COBOL PROGRAM: VSAM INPUT'
            OPEN INPUT EMPLOYEE-VS-FILE 
            INITIALIZE EMPLOYEE 
-           MOVE '3217' TO EMP-ID
+           MOVE '3217' TO EMP-ID.
        P200-MAINLINE.
       ***************************************************************
       * READ THE INPUT FILE TO GET THE REQUESTED RECORD AND DISPLAY *
@@ -54,11 +54,10 @@
            IF EMP-FILE-STATUS = '00' THEN
               DISPLAY 'EMPLOYEE DATA IS ' EMPLOYEE 
            ELSE 
-              DISPLAY 'RECORD WAS NOT FOUND'
-           END-IF 
+              DISPLAY 'RECORD WAS NOT FOUND'.
        P300-TERMINATION.
            CLOSE EMPLOYEE-VS-FILE
-           DISPLAY 'COBVS1 - SUCCESSFUL ENDED'
+           DISPLAY 'COBVS1 - SUCCESSFUL ENDED'.
       ***************************************************************
       * END OF SOURCE CODE.                                         *
       ***************************************************************
