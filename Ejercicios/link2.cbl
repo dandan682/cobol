@@ -1,0 +1,18 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID.    LINK2.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  WS-TOTAL          PIC 9(04).
+       LINKAGE SECTION. 
+       01  LS-GROUP-VAR.
+           05 LS-VAR1        PIC 9(02).
+           05 LS-VAR2        PIC 9(02).
+       PROCEDURE DIVISION USING LS-GROUP-VAR.
+           DISPLAY 'STARTING PROGRAM2 - LINK2'
+           DISPLAY 'LS-VAR1 IS: ' LS-VAR1
+           DISPLAY 'LS-VAR2 IS: ' LS-VAR2
+           COMPUTE WS-TOTAL = LS-VAR1 + LS-VAR2
+           DISPLAY 'WS-TOTAL: ' WS-TOTAL
+           DISPLAY 'RETURNING TO PROGRAM1 - LINK1...'.
+           GOBACK.
+           
