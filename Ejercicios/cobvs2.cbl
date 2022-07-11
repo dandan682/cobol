@@ -24,7 +24,7 @@
            05 EMP-FIRST-NAME       PIC X(30).
            05 EMP-SERVICE-YEARS    PIC 9(02).
            05 EMP-PROMOTION-DATE   PIC X(10).
-           05 FILLER               PIC X(14).
+           05 FILLER               PIC X(14) VALUE SPACES.
       *****************************************************************
        WORKING-STORAGE SECTION.
        01  WS-FLAGS.
