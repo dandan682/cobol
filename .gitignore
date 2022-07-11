@@ -8,3 +8,5 @@
 .DS_Store
 # Ignore txt files
 *.txt
+# Ignore dylib files
+*.dylib
