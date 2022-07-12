@@ -22,7 +22,9 @@
            DISPLAY 'VAR1 IS: ' VAR1
            DISPLAY 'VAR2 IS: ' VAR2
            DISPLAY 'CALLING PROGRAM2: LINK2...'
+      ****************************************************
            CALL 'LINK2' USING WS-GROUP-VAR
+      ****************************************************
            DISPLAY 'RETURNED TO PROGRAM1: LINK1.'
            CLOSE INFILE
            GOBACK.
