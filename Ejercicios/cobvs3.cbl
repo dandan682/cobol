@@ -1,7 +1,7 @@
        IDENTIFICATION DIVISION.
-       PROGRAM-ID.     COBVS2.
+       PROGRAM-ID.     COBVS3.
       *****************************************************************
-      * PROGRAM TO ADD A RECORD TO THE EMPLOYEE VSAM FILE             *
+      * PROGRAM TO RETRIEVE AND UPDATE A RECORD ON THE EMPLOOYEE FILE *
       *****************************************************************
        ENVIRONMENT DIVISION. 
        CONFIGURATION SECTION. 
@@ -41,7 +41,7 @@
            PERFORM P300-TERMINATION
            GOBACK.
        P100-INITIALIZATION.
-           DISPLAY 'COBVS2 - SAMPLE COBOL PROGRAM: VSAM INSERT'
+           DISPLAY 'COBVS3 - SAMPLE COBOL PROGRAM: VSAM UPDATE.'
            OPEN I-O EMPLOYEE-VS-FILE 
            IF EMP-FILE-STATUS = '00' OR '97' THEN
               NEXT SENTENCE 
@@ -50,22 +50,25 @@
            INITIALIZE EMPLOYEE 
        P200-MAINLINE.
       ***************************************************************
-      * SET UP DATA ON THE RECORD STRUCTURE                         *
-      * AND THEN WRITE THE RECORD.                                  *
+      * FIRST READ THE SPECIFIED RECORD. THEN MAKE CHANGES TO THE   *
+      * RECORD. FINALLY REWRITE THE RECORD TO THE VSAM FILE.        *
       ***************************************************************
            MOVE '1111'    TO EMP-ID
-           MOVE 'SMITH'   TO EMP-LAST-NAME
-           MOVE 'SANDRA'  TO EMP-FIRST-NAME
-           MOVE '09'      TO EMP-SERVICE-YEARS
-           MOVE '2017-01-01' TO EMP-PROMOTION-DATE
-           WRITE EMPLOYEE 
+           READ EMPLOYEE-VS-FILE
            IF EMP-FILE-STATUS = '00' THEN
-              DISPLAY 'ADD SUCCESSFUL - DATA IS ' EMPLOYEE 
+              NEXT SENTENCE 
            ELSE
-              DISPLAY 'ERROR ON INSERT - FILE STATUS ' EMP-FILE-STATUS 
+              DISPLAY 'ERROR ON READ - FILE STATUS ' EMP-FILE-STATUS 
+           MOVE '10'      TO EMP-SERVICE-YEARS
+           REWRITE EMPLOYEE
+           IF EMP-FILE-STATUS = '00' THEN
+              DISPLAY 'UPDATE SUCCESSFUL - DATA IS ' EMPLOYEE 
+           ELSE
+              DISPLAY 'ERROR ON REWRITE - FILE STATUS ' EMP-FILE-STATUS 
+
        P300-TERMINATION.
            CLOSE EMPLOYEE-VS-FILE
-           DISPLAY 'COBVS2 - SUCCESSFUL ENDED'.
+           DISPLAY 'COBVS3 - SUCCESSFULLY ENDED'.
       ***************************************************************
       * END OF SOURCE CODE.                                         *
       ***************************************************************
