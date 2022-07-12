@@ -46,7 +46,7 @@
            IF EMP-FILE-STATUS = '00' OR '97' THEN
               NEXT SENTENCE 
            ELSE
-              DISPLAY 'ERROR ON OPEN - FILE STATUS ' EMP-FILE-STATUS
+              DISPLAY 'ERROR ON OPEN - FILE STATUS ' EMP-FILE-STATUS.
            INITIALIZE EMPLOYEE 
        P200-MAINLINE.
       ***************************************************************

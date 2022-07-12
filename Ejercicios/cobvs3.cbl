@@ -46,8 +46,8 @@
            IF EMP-FILE-STATUS = '00' OR '97' THEN
               NEXT SENTENCE 
            ELSE
-              DISPLAY 'ERROR ON OPEN - FILE STATUS ' EMP-FILE-STATUS
-           INITIALIZE EMPLOYEE 
+              DISPLAY 'ERROR ON OPEN - FILE STATUS ' EMP-FILE-STATUS.
+           INITIALIZE EMPLOYEE.
        P200-MAINLINE.
       ***************************************************************
       * FIRST READ THE SPECIFIED RECORD. THEN MAKE CHANGES TO THE   *
@@ -58,14 +58,13 @@
            IF EMP-FILE-STATUS = '00' THEN
               NEXT SENTENCE 
            ELSE
-              DISPLAY 'ERROR ON READ - FILE STATUS ' EMP-FILE-STATUS 
+              DISPLAY 'ERROR ON READ - FILE STATUS ' EMP-FILE-STATUS.
            MOVE '10'      TO EMP-SERVICE-YEARS
            REWRITE EMPLOYEE
            IF EMP-FILE-STATUS = '00' THEN
               DISPLAY 'UPDATE SUCCESSFUL - DATA IS ' EMPLOYEE 
            ELSE
               DISPLAY 'ERROR ON REWRITE - FILE STATUS ' EMP-FILE-STATUS 
-
        P300-TERMINATION.
            CLOSE EMPLOYEE-VS-FILE
            DISPLAY 'COBVS3 - SUCCESSFULLY ENDED'.
