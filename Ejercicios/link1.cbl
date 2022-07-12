@@ -14,6 +14,7 @@
        01  WS-GROUP-VAR.
            05 WS-VAR1        PIC 9(02).
            05 WS-VAR2        PIC 9(02).
+       01  WS-PROG           PIC X(05) VALUE 'LINK2'.
        PROCEDURE DIVISION.
            OPEN INPUT INFILE
            READ INFILE
@@ -23,7 +24,8 @@
            DISPLAY 'VAR2 IS: ' VAR2
            DISPLAY 'CALLING PROGRAM2: LINK2...'
       ****************************************************
-           CALL 'LINK2' USING WS-GROUP-VAR
+      *     CALL 'LINK2' USING WS-GROUP-VAR
+           CALL WS-PROG USING WS-GROUP-VAR
       ****************************************************
            DISPLAY 'RETURNED TO PROGRAM1: LINK1.'
            CLOSE INFILE
