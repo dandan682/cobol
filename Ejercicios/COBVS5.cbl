@@ -46,7 +46,7 @@
            IF EMP-FILE-STATUS = '00' OR '97' THEN
               NEXT SENTENCE 
            ELSE
-              DISPLAY 'ERROR ON OPEN - FILE STATUS ' EMP-FILE-STATUS.
+              DISPLAY 'ERROR ON OPEN - FILE STATUS ' EMP-FILE-STATUS
            DISPLAY 'INITIALIZE EMPLOYEE'
            INITIALIZE EMPLOYEE.
        P200-MAINLINE.
@@ -73,7 +73,7 @@
               END-PERFORM
            ELSE 
               DISPLAY 'NO RECORDS IN FILE'
-           END-IF 
+           END-IF. 
        P300-TERMINATION.
            CLOSE EMPLOYEE-VS-FILE
            DISPLAY 'COBVS5 - SUCCESSFULLY ENDED'.
