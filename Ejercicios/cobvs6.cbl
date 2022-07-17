@@ -1,7 +1,8 @@
        IDENTIFICATION DIVISION.
        PROGRAM-ID.     COBVS6.
       *****************************************************************
-      * PROGRAM TO DELETE A RECORD FROM THE EMPLOOYEE FILE            *
+      * PROGRAM TO RETRIEVE A RECORD FROM THE EMPLOOYEE FILE USING    *
+      * ALTERNATE INDEX                                               *
       *****************************************************************
        ENVIRONMENT DIVISION. 
        CONFIGURATION SECTION. 
@@ -9,10 +10,11 @@
        OBJECT-COMPUTER. IBM-3081. 
        INPUT-OUTPUT SECTION.
        FILE-CONTROL. 
-           SELECT EMPLOYEE-VS-FILE ASSIGN TO EMPVSFIL
+           SELECT EMPLOYEE-VS-FILE ASSIGN TO EMPVSFL
            ORGANIZATION IS INDEXED
            ACCESS MODE  IS RANDOM
            RECORD KEY   IS EMP-ID
+           ALTERNATE KEY IS EMP-SSN
            FILE STATUS  IS EMP-FILE-STATUS.
       *****************************************************************
        DATA DIVISION.
@@ -24,7 +26,8 @@
            05 EMP-FIRST-NAME       PIC X(20).
            05 EMP-SERVICE-YEARS    PIC 9(02).
            05 EMP-PROMOTION-DATE   PIC X(10).
-           05 FILLER               PIC X(14) VALUE SPACES.
+           05 EMP-SSN              PIC X(09).
+           05 FILLER               PIC X(05) VALUE SPACES.
       *****************************************************************
        WORKING-STORAGE SECTION.
        01  WS-FLAGS.
@@ -41,8 +44,8 @@
            PERFORM P300-TERMINATION
            GOBACK.
        P100-INITIALIZATION.
-           DISPLAY 'COBVS4 - SAMPLE COBOL PROGRAM: VSAM DELETE.'
-           OPEN I-O EMPLOYEE-VS-FILE 
+           DISPLAY 'COBVS6 - SAMPLE COBOL PROGRAM: VSAM ALT INDEX.'
+           OPEN INPUT EMPLOYEE-VS-FILE 
            IF EMP-FILE-STATUS = '00' OR '97' THEN
               NEXT SENTENCE 
            ELSE
@@ -52,15 +55,24 @@
       ***************************************************************
       * DELETE THE RECORD FROM THE VSAM FILE.                       *
       ***************************************************************
-           MOVE '1111'    TO EMP-ID
-           DELETE EMPLOYEE-VS-FILE
+           MOVE '097644337' TO EMP-SSN
+           READ EMPLOYEE-VS-FILE KEY IS EMP-SSN 
            IF EMP-FILE-STATUS = '00' THEN
-              DISPLAY 'DELETE  SUCCESSFUL - DATA IS ' EMPLOYEE 
+              DISPLAY 'EMP-ID: ' EMP-ID 
+              DISPLAY 'EMP LAST NAME: '  EMP-LAST-NAME 
+              DISPLAY 'EMP FIRST NAME: ' EMP-FIRST-NAME  
+              DISPLAY 'EMP YEARS OF SERVICE: ' EMP-SERVICE-YEARS 
+              DISPLAY 'EMP PROMOTION DATE: ' EMP-PROMOTION-DATE 
+              DISPLAY 'EMP SOCIAL SECURITY: ' EMP-SSN  
            ELSE
-              DISPLAY 'ERROR ON DELETE - FILE STATUS ' EMP-FILE-STATUS.
+              DISPLAY 'RECORD NOT FOUND RC= ' EMP-FILE-STATUS.
        P300-TERMINATION.
            CLOSE EMPLOYEE-VS-FILE
-           DISPLAY 'COBVS4 - SUCCESSFULLY ENDED'.
+           IF EMP-FILE-STATUS = '00' THEN
+              NEXT SENTENCE 
+           ELSE
+              DISPLAY 'ERROR ON CLOSE - FILE STATUS ' EMP-FILE-STATUS.
+           DISPLAY 'COBVS6 - SUCCESSFULLY ENDED'.
       ***************************************************************
       * END OF SOURCE CODE.                                         *
       ***************************************************************
