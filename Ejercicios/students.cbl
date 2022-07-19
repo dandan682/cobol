@@ -3,12 +3,12 @@
        DATA DIVISION.
        WORKING-STORAGE SECTION.
        01  STUDENT-RESULT-TABLE.
-           05 STUDENT-RESULT-LINE  OCCURS   5.
-              10 STUDENT-MARK   PIC   999   OCCURS   3.
-       01  STUDENT-NUM PIC   9.
-       01  SUBJECT-NUM PIC   9.
+           05 STUDENT-RESULT-LINE OCCURS 5.
+              10 STUDENT-MARK PIC ZZ9 OCCURS 3.
+       01  STUDENT-NUM PIC 9.
+       01  SUBJECT-NUM PIC 9.
        PROCEDURE DIVISION.
-      PROCESS-RESULTS-MAIN.
+       PROCESS-RESULTS-MAIN.
            PERFORM FILL-TABLE
            PERFORM DISPLAY-TABLE
            GOBACK.
@@ -27,6 +27,6 @@
            UNTIL STUDENT-NUM > 5.
        DISPLAY-LINE.
            DISPLAY STUDENT-NUM, ' '
-              STUDENT-MARK (STUDENT-NUM, 1), ' '
-              STUDENT-MARK (STUDENT-NUM, 2), ' '
-              STUDENT-MARK (STUDENT-NUM, 3)
+              STUDENT-MARK (STUDENT-NUM, 1) ' '
+              STUDENT-MARK (STUDENT-NUM, 2) ' '
+              STUDENT-MARK (STUDENT-NUM, 3).
