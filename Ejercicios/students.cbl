@@ -27,4 +27,6 @@
            UNTIL STUDENT-NUM > 5.
        DISPLAY-LINE.
            DISPLAY STUDENT-NUM, ' '
-              STUDENT-MARK 
+              STUDENT-MARK (STUDENT-NUM, 1), ' '
+              STUDENT-MARK (STUDENT-NUM, 2), ' '
+              STUDENT-MARK (STUDENT-NUM, 3)
