@@ -1,6 +1,0 @@
-1122JENKINS                       DEBORAH             042016-09-01
-3217JOHNSON                       EDWARD              042017-01-01
-4720SCHULTZ                       TIM                 042017-01-01
-6288WILLARD                       JOE                 042016-01-01
-7459STEWART                       BETTY               042016-07-31
-9134FRANKLIN                      BRIANNA             042016-10-01
