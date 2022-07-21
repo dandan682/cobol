@@ -1,0 +1,21 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID.    VAL8801.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  CITY-CODE  PIC 9 VALUE ZERO.
+           88 CITYISDUBLIN   VALUE 1.
+           88 CITYISLIMERICK VALUE 2.
+           88 CITYISCORK     VALUE 3.
+       PROCEDURE DIVISION.
+           DISPLAY 'ENTER CITY CODE (1 - 3): ' WITH NO ADVANCING 
+           ACCEPT CITY-CODE 
+           IF CITYISDUBLIN THEN
+              DISPLAY 'DUBLIN'
+           END-IF 
+           IF CITYISLIMERICK THEN
+              DISPLAY 'MERICK'
+           END-IF 
+           IF CITYISCORK THEN
+              DISPLAY 'CORK'
+           END-IF 
+           GOBACK.
