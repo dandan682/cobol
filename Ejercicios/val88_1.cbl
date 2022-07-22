@@ -6,6 +6,7 @@
            88 CITYISDUBLIN   VALUE 1.
            88 CITYISLIMERICK VALUE 2.
            88 CITYISCORK     VALUE 3.
+           88 CITYISTORONTO  VALUE 4.
        PROCEDURE DIVISION.
            DISPLAY 'ENTER CITY CODE (1 - 3): ' WITH NO ADVANCING 
            ACCEPT CITY-CODE 
@@ -15,4 +16,6 @@
               DISPLAY 'MERICK'.
            IF CITYISCORK THEN
               DISPLAY 'CORK'.
+           IF CITYISTORONTO THEN
+              DISPLAY 'TORONTO'.              
            GOBACK.
