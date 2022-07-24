@@ -1,0 +1,81 @@
+      * dbpre V 0.4: sqltest.lst                                 20220723-191623
+------*-------------------------------------------------------------------------
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. Pl.
+       ENVIRONMENT DIVISION.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+      *EXEC SQL
+      *    INCLUDE SQLCA
+        01  SQLCA.
+          05 SQLCA-CID                     USAGE POINTER.
+          05 SQLCA-CURSOR-CTRL-GRP.
+            10 SQLCA-CURSOR-CTRL OCCURS 65 PIC X.
+          05 SQLCA-RESULT-GRP OCCURS 65.
+            10 SQLCA-RESULT                USAGE POINTER.
+          05 SQLCA-SEQUENCE                PIC 9(08).
+          05 SQLCA-COUNT                   PIC 9(08).
+          05 FILLER                        PIC X VALUE LOW-VALUE.
+          05 SQLCA-RETURN-CODE             PIC 9(03).
+          05 SQLCA-CROWCNT                 PIC X(08).
+          05 SQLCA-ROWCNT                  PIC 9(08).
+            88 SQLCA-NO-ROW                VALUE 0.
+            88 SQLCA-ONE-ROW               VALUE 1.
+            88 SQLCA-MORE-THAN-ONE-ROW     VALUE 2 THRU 99999999.
+          05 FILLER                        PIC X VALUE LOW-VALUE.
+          05 SQLCA-HOST                    PIC X(32).
+          05 FILLER                        PIC X VALUE LOW-VALUE.
+          05 SQLCA-USER                    PIC X(32).
+          05 FILLER                        PIC X VALUE LOW-VALUE.
+          05 SQLCA-PASSWD                  PIC X(32).
+          05 FILLER                        PIC X VALUE LOW-VALUE.
+          05 SQLCA-DBNAME                  PIC X(32).
+          05 FILLER                        PIC X VALUE LOW-VALUE.
+          05 SQLCA-PORT                    PIC 9(05).
+          05 FILLER                        PIC X VALUE LOW-VALUE.
+          05 SQLCA-SOCKET                  PIC X(32).
+          05 FILLER                        PIC X VALUE LOW-VALUE.
+          05 SQLCA-QUOTE                   PIC X VALUE "'".
+          05 SQLCA-COBVERSION              PIC X(20).
+          05 SQLCA-CARD                    PIC X(80).
+          05 SQLCA-STATEMENT.
+            10 SQLCA-STAT-LINE OCCURS 80   PIC X(25).
+          05 FILLER                        PIC X VALUE LOW-VALUE.
+          05 SQLCODE                       PIC 9(03).
+            88 DB-OK                       VALUE 0.
+            88 DB-CURSOR-ALREADY-OPEN      VALUE -1.
+            88 DB-CURSOR-NOT-OPEN          VALUE -2.
+            88 DB-NOT-FOUND                VALUE 100.
+DBPRE *END-EXEC
+      ******************************************************************
+      *       SQLCA: SQL Communications Area for Ocesql                *
+      ******************************************************************
+       PROCEDURE DIVISION.
+        MAIN-PARA.
+            DISPLAY "SIMPLE PROGRAM TO INSERT RECORDS IN TO A TABLE : "
+DBPRE       MOVE 1             TO SQLCA-SEQUENCE
+      *     EXEC SQL
+DBPRE *     END-EXEC.
+DBPRE   MOVE LOW-VALUES TO SQLCA-STATEMENT
+DBPRE   STRING
+DBPRE   'INSERT ' DELIMITED SIZE
+DBPRE   'INTO ' DELIMITED SIZE
+DBPRE   'ABTEIL ' DELIMITED SIZE
+DBPRE   '('ABTEILUNG ' DELIMITED SIZE
+DBPRE   'NAME', ' DELIMITED SIZE
+DBPRE   '''PRAEMIE')' ' DELIMITED SIZE
+DBPRE   'VALUES ' DELIMITED SIZE
+DBPRE   '('Testabteilung', ' DELIMITED SIZE
+DBPRE   '15) ' DELIMITED SIZE
+DBPRE   INTO SQLCA-STATEMENT
+DBPRE   END-STRING
+DBPRE   CALL 'MySQL_query' USING SQLCA-STATEMENT
+DBPRE   END-CALL
+DBPRE   MOVE RETURN-CODE        TO SQLCODE
+            IF SQLCODE = 0
+               DISPLAY "RECORD IS CREATED"
+            ELSE
+               DISPLAY "RECORD CREATION FAILED : " SQLCODE
+            END-IF.
+           STOP RUN.
+0 errors.
