@@ -10,5 +10,3 @@
 *.txt
 # Ignore dylib files
 *.dylib
-# Ignore dbpre
-dbpre*
