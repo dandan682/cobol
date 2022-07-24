@@ -1,0 +1,2 @@
+gcc -I/usr/local/Cellar/mysql/8.0.29_1/include/mysql -c cobmysqlapi.c 
+cp cobmysqlapi.o ../examples

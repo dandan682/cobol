@@ -1,0 +1,4 @@
+dbpre freeform -f -ts=3 -I../copybooks
+RC=$?
+echo "RC="$RC
+cobc -x -free freeform.cob cobmysqlapi.o -L/usr/lib/mysql -lmysqlclient -I../copybooks

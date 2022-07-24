@@ -1,0 +1,4 @@
+###gcc dbpre.c -odbpre -O5 -ggdb
+gcc dbpre.c -odbpre -O
+sudo cp dbpre /usr/local/bin
+

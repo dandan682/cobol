@@ -1,0 +1,2 @@
+dbpre PCTB003B -ts=3 -I../dbpre_0.4/copybooks
+cobc -x PCTB003B.cob cobmysqlapi.o -L/usr/local/Cellar/mysql -lmysqlclient -I../dbprep_0.4/copybooks
