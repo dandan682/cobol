@@ -1,0 +1,12 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID.     LINK01.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  NUM1      PIC 9 VALUE 5.
+       01  NUM2      PIC 9 VALUE 4.
+       01  SUM1      PIC 99.
+       77  SUBPROG   PIC X(11) VALUE 'LINK-GETSUM'.
+       PROCEDURE DIVISION.
+           CALL SUBPROG USING NUM1, NUM2, SUM1
+           DISPLAY NUM1 ' + ' NUM2 ' = ' SUM1
+           GOBACK.
