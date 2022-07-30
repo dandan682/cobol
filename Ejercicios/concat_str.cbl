@@ -17,6 +17,8 @@
        01 SSTR3        PIC X(3).
        01 SSTR4        PIC X(3).
        PROCEDURE DIVISION.
+           INSPECT SAMPSTR TALLYING NUMCHARS FOR CHARACTERS
+           DISPLAY 'NUMBER OF CHARS: ' NUMCHARS 
            GOBACK.
 
            
