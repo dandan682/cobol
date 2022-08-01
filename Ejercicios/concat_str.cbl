@@ -29,6 +29,17 @@
            LNAME DELIMITED BY SIZE 
            INTO FLNAME
            DISPLAY FLNAME 
+
+           STRING FLNAME DELIMITED BY SPACES 
+           SPACE 
+           MNAME DELIMITED BY SIZE 
+           SPACE 
+           LNAME DELIMITED BY SIZE 
+           INTO FMLNAME 
+           ON OVERFLOW DISPLAY '**OVERFLOWED**'
+           NOT ON OVERFLOW DISPLAY '*NOT OVERFLOWED*'
+           END-STRING
+           DISPLAY FMLNAME 
            GOBACK.
 
            
