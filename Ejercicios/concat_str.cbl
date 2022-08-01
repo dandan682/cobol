@@ -40,6 +40,16 @@
            NOT ON OVERFLOW DISPLAY '*NOT OVERFLOWED*'
            END-STRING
            DISPLAY FMLNAME 
+
+           STRING SSTR1 DELIMITED BY SIZE 
+           SPACE 
+           SSTR2 DELIMITED BY '#'
+           INTO DEST
+           WITH POINTER PTR 
+           ON OVERFLOW DISPLAY '**OVERFLOWED**'
+           END-STRING
+           DISPLAY DEST 
+
            GOBACK.
 
            
