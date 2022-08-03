@@ -50,6 +50,12 @@
            END-STRING
            DISPLAY DEST 
 
+           UNSTRING SSTR1 DELIMITED BY SPACE 
+           INTO SSTR3, SSTR4 
+           END-UNSTRING 
+           DISPLAY SSTR4 
+
+
            GOBACK.
 
            
