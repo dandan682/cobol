@@ -55,7 +55,6 @@
            END-UNSTRING 
            DISPLAY SSTR4 
 
-
            GOBACK.
 
            
