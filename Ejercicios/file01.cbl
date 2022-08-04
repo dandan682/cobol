@@ -26,6 +26,6 @@
            MOVE "DOUGH" TO FIRSTNAME 
            MOVE "THOMAS" TO LASTNAME 
            WRITE CUSTOMERDATA 
+           END-WRITE 
            CLOSE CUSTOMERFILE 
            GOBACK.
-           
