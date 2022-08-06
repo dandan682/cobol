@@ -27,7 +27,8 @@
               READ CUSTOMERFILE INTO WS-CUSTOMER
                  AT END MOVE 'Y' TO WS-EOF
                  NOT AT END DISPLAY WS-CUSTOMER 
-           END PERFORM      
+              END-READ
+           END-PERFORM      
            CLOSE CUSTOMERFILE 
            GOBACK.
        END PROGRAM FILE03.
