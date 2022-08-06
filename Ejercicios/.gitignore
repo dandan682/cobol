@@ -12,3 +12,5 @@
 *.dylib
 # Ignore dat files
 *.dat
+# Ignore rpt files
+*.rpt
