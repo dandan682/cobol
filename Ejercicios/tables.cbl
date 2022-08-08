@@ -1,0 +1,14 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID.     TABLE01.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 TABLE1.
+          02 FRIEND PIC X(15) OCCURS 4 TIMES. 
+       PROCEDURE DIVISION.
+           MOVE 'JOY' TO FRIEND(1)
+           MOVE 'WILLOW' TO FRIEND(2)
+           MOVE 'IVY' TO FRIEND(3)
+           MOVE 'DANIEL' TO FRIEND(4)
+           DISPLAY FRIEND(1)
+           DISPLAY TABLE1 
+           GOBACK.
