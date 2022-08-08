@@ -16,9 +16,9 @@
              03 PRODSIZE OCCURS 3 TIMES INDEXED BY J.
                 04 SIZETYPE PIC A.
        PROCEDURE DIVISION.
-           MOVE 'JOY' TO FRIEND(1)
+           MOVE 'JOY'    TO FRIEND(1)
            MOVE 'WILLOW' TO FRIEND(2)
-           MOVE 'IVY' TO FRIEND(3)
+           MOVE 'IVY'    TO FRIEND(3)
            MOVE 'DANIEL' TO FRIEND(4)
            DISPLAY FRIEND(1)
            DISPLAY TABLE1 
@@ -35,7 +35,7 @@
            MOVE 'S' TO PRODSIZE(I,J)
            SET J UP BY 1
            MOVE 'M' TO PRODSIZE(I,J)
-           SET J DOWN BY 1
+      *     SET J DOWN BY 1
            MOVE 'BLUE SHIRTSMLRED SHIRT SML' TO ORDERTABLE 
            PERFORM GETPRODUCT VARYING I FROM 1 BY 1 UNTIL I > 2
            PERFORM LOOKUP.
