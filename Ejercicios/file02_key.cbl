@@ -77,39 +77,29 @@
            READ CUSTOMER-FILE 
               INVALID KEY MOVE 'N' TO CUSTEXIST
            IF CUSTEXIST = 'N'
-              DISPLAY 'CUSTO'
-           REWRITE        
-
-                   
-
-           PERFORM PRINT-PAGE-HEADING
+              DISPLAY 'CUSTOMER DOES NOT EXIST'
+           ELSE
+              DISPLAY 'ENTER FIRST NAME: ' WITH NO ADVANCING 
+              ACCEPT FIRSTNAME 
+              DISPLAY 'ENTER LAST NAME: ' WITH NO ADVANCING 
+              ACCEPT LASTNAME           
+              REWRITE CUSTOMERDATA 
+                 INVALID KEY DISPLAY 'CUSTOMER NOT UPDATED'
+              END-REWRITE
+           END-IF.   
+       GETCUST.
+           DISPLAY ''  
+           DISPLAY 'ENTER ID TO FIND: ' WITH NO ADVANCING 
+           ACCEPT IDNUM   
            READ CUSTOMER-FILE
-              AT END SET WS-EOF TO TRUE
+              INVALID KEY MOVE 'N' TO CUSTEXIST 
            END-READ
-           PERFORM PRINT-REPORT-BODY UNTIL WS-EOF
-           WRITE PRINT-LINE FROM REPORT-FOOTING AFTER ADVANCING 4
-              LINES 
-           CLOSE CUSTOMER-FILE, CUSTOMER-REPORT 
-           GOBACK.
-       PRINT-PAGE-HEADING.
-           WRITE PRINT-LINE FROM PAGE-HEADING AFTER ADVANCING PAGE
-           WRITE PRINT-LINE FROM HEADER AFTER ADVANCING 2 LINES
-           MOVE 2 TO LINE-COUNT
-           ADD 1 TO PAGE-COUNT.
-       PRINT-REPORT-BODY.
-           IF NEW-PAGE-REQUIRED
-              MOVE PAGE-COUNT TO PRN-PAGENUM
-              WRITE PRINT-LINE FROM PAGE-FOOTING AFTER ADVANCING 4
-                 LINES
-              PERFORM PRINT-PAGE-HEADING
-           END-IF
-           MOVE IDNUM TO PRN-CUSTID
-           MOVE FIRSTNAME TO PRN-FIRSTNAME
-           MOVE LASTNAME TO PRN-LASTNAME
-           WRITE PRINT-LINE FROM CUSTOMER-DETAIL-LINE AFTER 
-              ADVANCING 1 LINE 
-           ADD 1 TO LINE-COUNT
-           READ CUSTOMER-FILE
-              AT END SET WS-EOF TO TRUE
-           END-READ.
+           IF CUSTEXIST = 'N'
+              DISPLAY 'CUSTOMER DOES NOT EXIST'
+           ELSE 
+              DISPLAY ' '
+              DISPLAY 'ID: ' IDNUM 
+              DISPLAY 'FIST NAME: ' FIRSTNAME 
+              DISPLAY 'LAST NAME: ' LASTNAME 
+           END-IF.
        END PROGRAM FILE04.
