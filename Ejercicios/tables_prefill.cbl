@@ -14,10 +14,10 @@
        01 CHANGEME.
           02 TEXTNUM PIC X(6).
           02 FLOATNUM REDEFINES TEXTNUM PIC 9(4)V99.
-       01 SRNUM PIC X(7).
+       01 STRNUM PIC X(7).
        01 SPLITNUM.
           02 WNUM PIC 9(4) VALUE ZERO.
-          02 FNUM PÌC 99 VALUE ZERO.     
+          02 FNUM PIC 99 VALUE ZERO.     
        01 FLNUM REDEFINES SPLITNUM PIC 9999V99.
        01 DOLLARNUM PIC $$,$$9.99.       
        PROCEDURE DIVISION.
@@ -33,4 +33,3 @@
            DISPLAY DOLLARNUM 
            GOBACK.      
            END PROGRAM TABLE-FILL.
-           
