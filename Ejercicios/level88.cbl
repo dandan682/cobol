@@ -1,0 +1,18 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID.     LEVEL88.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION. 
+       01 WS-MARITAL-STATUS     PIC 9.
+          88 WS-MARRIED         VALUE 1.
+          88 WS-SINGLE          VALUE 2.
+          88 WS-DIVORCED        VALUE 3.
+       PROCEDURE DIVISION.
+           SET WS-MARRIED TO TRUE 
+           DISPLAY WS-MARITAL-STATUS 
+           MOVE 3 TO WS-MARITAL-STATUS
+           EVALUATE TRUE  
+              WHEN WS-MARRIED DISPLAY '1'
+              WHEN WS-SINGLE  DISPLAY '2'
+              WHEN OTHER DISPLAY '3'
+           END-EVALUATE  
+           GOBACK.
