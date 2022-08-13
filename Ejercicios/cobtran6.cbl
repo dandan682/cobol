@@ -129,7 +129,6 @@
        77 NEW-PAY-PKD      PIC S9(6)V9(2) USAGE COMP-3. 
        77 NEW-PAY          PIC 99999.99. 
        PROCEDURE DIVISION. 
- 
            PERFORM P100-INITIALIZATION. 
            PERFORM P200-MAINLINE. 
            PERFORM P300-TERMINATION. 
@@ -139,23 +138,18 @@
            OPEN INPUT  EMPLOYEE-IN-FILE, 
                 OUTPUT EMPLOYEE-OUT-FILE, 
                 OUTPUT REPORT-OUT-FILE. 
- 
            INITIALIZE IN-EMPLOYEE-RECORD, 
                       OUT-EMPLOYEE-RECORD. 
- 
            WRITE REPORT-RECORD-OUT FROM HDR-LINE-01 
            WRITE REPORT-RECORD-OUT FROM HDR-LINE-02 
            WRITE REPORT-RECORD-OUT FROM SPC-LINE 
            WRITE REPORT-RECORD-OUT FROM DTL-HDR01 
            WRITE REPORT-RECORD-OUT FROM DTL-HDR02. 
- 
        P200-MAINLINE. 
- 
       *    MAIN LOOP - READ THE INPUT FILE, 
       *    LOAD THE OUTPUT STRUCTURE AND 
       *    WRITE THE RECORD TO OUTPUT. 
-            SET SW-NOT-END-OF-FILE TO TRUE. 
- 
+           SET SW-NOT-END-OF-FILE TO TRUE. 
            READ EMPLOYEE-IN-FILE 
               INTO IN-EMPLOYEE-RECORD 
               AT END SET SW-END-OF-FILE TO TRUE 
@@ -167,7 +161,7 @@
                     (REG-PAY-PKD + (REG-PAY-PKD * 0.10)) 
                  MOVE NEW-PAY-PKD TO NEW-PAY 
                  DISPLAY 'NEW PAY ' NEW-PAY 
-                 *       MOVE FIELDS 
+      *       MOVE FIELDS 
                  MOVE EMP-ID-IN   
                     TO EMP-ID-OUT, 
                        RPT-EMP-ID 
@@ -247,7 +241,6 @@
                   DISPLAY 'REG PAY CANNOT BE ZERO ' REG-PAY-IN 
                END-IF 
             END-IF 
- 
             IF SW-NO-ERRORS THEN 
                IF BON-PAY-PKD <= 0 THEN 
                   SET SW-HAS-ERROR TO TRUE 
