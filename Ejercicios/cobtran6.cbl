@@ -10,22 +10,23 @@
        INPUT-OUTPUT SECTION. 
           FILE-CONTROL. 
              SELECT EMPLOYEE-IN-FILE   
-                 ASSIGN TO EMPIFILE. 
+                 ASSIGN TO "empifile.dat"
+                 FILE STATUS IS WS-STATUS-INPUT.
              SELECT EMPLOYEE-OUT-FILE  
-                 ASSIGN TO EMPOFILE. 
+                 ASSIGN TO "empofile.txt". 
              SELECT REPORT-OUT-FILE    
-                 ASSIGN TO EMPREPRT. 
+                 ASSIGN TO "empreport.rpt". 
        DATA DIVISION. 
        FILE SECTION. 
        FD  EMPLOYEE-IN-FILE 
            RECORDING MODE IS F 
            LABEL RECORDS ARE STANDARD 
-           RECORD CONTAINS 80 CHARACTERS 
+           RECORD CONTAINS 25 CHARACTERS 
            BLOCK CONTAINS 0 RECORDS 
            DATA RECORD IS EMPLOYEE-RECORD-IN. 
        01 EMPLOYEE-RECORD-IN.
           05  E-ID          PIC X(04). 
-          05  FILLER        PIC X(76). 
+          05  FILLER        PIC X(21). 
        FD  EMPLOYEE-OUT-FILE 
            RECORDING MODE IS F 
            LABEL RECORDS ARE STANDARD 
@@ -58,8 +59,7 @@
              05  REG-PAY-IN    PIC 99999V99. 
              05  FILLER        PIC X(02). 
              05  BON-PAY-IN    PIC 9999V99. 
-             05  FILLER        PIC X(54). 
- 
+             05  FILLER        PIC X(01). 
        01 OUT-EMPLOYEE-RECORD. 
              05  EMP-ID-OUT    PIC S9(9) USAGE COMP. 
              05  FILLER        PIC X(05). 
@@ -122,6 +122,8 @@
              05  FILLER       PIC X(30) 
                  VALUE ' END OF ANNUAL SALARY REPORT  '. 
              05  FILLER       PIC X(24) VALUE SPACES. 
+       77 WS-STATUS-INPUT  PIC X(02).
+       77 WS-RECORD-NUM    PIC 99 VALUE 0.
        77 EMP-ID-BIN       PIC S9(9) USAGE COMP. 
        77 REG-PAY-PKD      PIC S9(6)V9(2) USAGE COMP-3. 
        77 BON-PAY-PKD      PIC S9(6)V9(2) USAGE COMP-3. 
@@ -135,8 +137,8 @@
            GOBACK. 
        P100-INITIALIZATION. 
            DISPLAY 'COBTRN6 - SAMPLE COBOL PROGRAM: CHECKING DATA '. 
-           OPEN INPUT  EMPLOYEE-IN-FILE, 
-                OUTPUT EMPLOYEE-OUT-FILE, 
+           OPEN INPUT  EMPLOYEE-IN-FILE ,
+                OUTPUT EMPLOYEE-OUT-FILE ,
                 OUTPUT REPORT-OUT-FILE. 
            INITIALIZE IN-EMPLOYEE-RECORD, 
                       OUT-EMPLOYEE-RECORD. 
@@ -152,15 +154,16 @@
            SET SW-NOT-END-OF-FILE TO TRUE. 
            READ EMPLOYEE-IN-FILE 
               INTO IN-EMPLOYEE-RECORD 
-              AT END SET SW-END-OF-FILE TO TRUE 
+              AT END SET SW-END-OF-FILE TO TRUE
            END-READ 
            PERFORM UNTIL SW-END-OF-FILE 
+              ADD 1 TO WS-RECORD-NUM
               PERFORM P1000-EDIT-RECORD 
               IF SW-NO-ERRORS THEN 
                  COMPUTE NEW-PAY-PKD = 
                     (REG-PAY-PKD + (REG-PAY-PKD * 0.10)) 
                  MOVE NEW-PAY-PKD TO NEW-PAY 
-                 DISPLAY 'NEW PAY ' NEW-PAY 
+      *          DISPLAY 'NEW PAY ' NEW-PAY 
       *       MOVE FIELDS 
                  MOVE EMP-ID-IN   
                     TO EMP-ID-OUT, 
@@ -186,7 +189,7 @@
                  WRITE REPORT-RECORD-OUT 
                     FROM DTL-LINE 
               ELSE 
-                 DISPLAY '** RECORD DISCARDED **' 
+                 DISPLAY ' ** RECORD #' WS-RECORD-NUM ' DISCARDED **' 
               END-IF 
               READ EMPLOYEE-IN-FILE 
                  INTO IN-EMPLOYEE-RECORD 
@@ -209,7 +212,7 @@
                   MOVE EMP-ID-IN TO EMP-ID-BIN 
                ELSE 
                   SET SW-HAS-ERROR TO TRUE 
-                  DISPLAY 'EMP ID IS NOT NUMERIC ' EMP-ID-IN 
+                  DISPLAY ' ** EMP ID IS NOT NUMERIC ' EMP-ID-IN 
                END-IF 
             END-IF 
             IF SW-NO-ERRORS THEN 
@@ -217,14 +220,14 @@
                   MOVE REG-PAY-IN TO REG-PAY-PKD 
                ELSE 
                   SET SW-HAS-ERROR TO TRUE 
-                  DISPLAY 'REG PAY IS NOT NUMERIC ' REG-PAY-IN 
+                  DISPLAY ' ** REG PAY IS NOT NUMERIC ' REG-PAY-IN 
                END-IF 
             END-IF 
             IF SW-NO-ERRORS THEN 
                IF BON-PAY-IN IS NUMERIC THEN 
                   MOVE BON-PAY-IN TO BON-PAY-PKD 
                ELSE 
-                  DISPLAY 'BON PAY IS NOT NUMERIC ' BON-PAY-IN 
+                  DISPLAY ' ** BON PAY IS NOT NUMERIC ' BON-PAY-IN 
                   SET SW-HAS-ERROR TO TRUE 
                END-IF 
             END-IF 
@@ -232,19 +235,19 @@
             IF SW-NO-ERRORS THEN 
                IF EMP-ID-BIN <= 0 THEN 
                   SET SW-HAS-ERROR TO TRUE 
-                  DISPLAY 'EMP ID CANNOT BE ZERO ' EMP-ID-IN 
+                  DISPLAY ' ** EMP ID CANNOT BE ZERO ' EMP-ID-IN 
                END-IF 
             END-IF 
             IF SW-NO-ERRORS THEN 
                IF REG-PAY-PKD <= 0 THEN 
                   SET SW-HAS-ERROR TO TRUE 
-                  DISPLAY 'REG PAY CANNOT BE ZERO ' REG-PAY-IN 
+                  DISPLAY ' ** REG PAY CANNOT BE ZERO ' REG-PAY-IN 
                END-IF 
             END-IF 
             IF SW-NO-ERRORS THEN 
                IF BON-PAY-PKD <= 0 THEN 
                   SET SW-HAS-ERROR TO TRUE 
-                  DISPLAY 'BON PAY CANNOT BE ZERO ' BON-PAY-IN 
+                  DISPLAY ' ** BON PAY CANNOT BE ZERO ' BON-PAY-IN 
                END-IF 
             END-IF. 
       *    END OF SOURCE CODE 
