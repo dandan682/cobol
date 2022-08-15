@@ -203,7 +203,7 @@
            WRITE REPORT-RECORD-OUT FROM TRLR-LINE-01 
            CLOSE EMPLOYEE-IN-FILE, 
                  EMPLOYEE-OUT-FILE, 
-                                  REPORT-OUT-FILE. 
+                 REPORT-OUT-FILE. 
            DISPLAY 'COBTRN6 - SUCCESSFULLY ENDED'. 
        P1000-EDIT-RECORD. 
             SET SW-NO-ERRORS TO TRUE 
@@ -251,3 +251,5 @@
                END-IF 
             END-IF. 
       *    END OF SOURCE CODE 
+       END PROGRAM COBTRN6.
+          
