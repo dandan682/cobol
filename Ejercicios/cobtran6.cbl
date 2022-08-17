@@ -47,8 +47,7 @@
                                       VALUE 'N'. 
               88  SW-END-OF-FILE      VALUE 'Y'. 
               88  SW-NOT-END-OF-FILE  VALUE 'N'. 
-          05  SW-ERROR-SWITCH         PIC X(1) 
-                                      VALUE 'N'. 
+          05  SW-ERROR-SWITCH         PIC X(1) VALUE 'N'. 
               88  SW-HAS-ERROR        VALUE 'Y'. 
               88  SW-NO-ERRORS        VALUE 'N'. 
        01 IN-EMPLOYEE-RECORD. 
@@ -71,20 +70,20 @@
                  COMP-3. 
              05  FILLER        PIC X(49) VALUE SPACES. 
        01 DISPLAY-EMPLOYEE-PIC. 
-               05  DIS-REG-PAY   PIC 99999.99. 
-               05  DIS-NEW-PAY   PIC 99999.99. 
-               05  DIS-BON-PAY   PIC 9999.99. 
+               05  DIS-REG-PAY  PIC 99999.99. 
+               05  DIS-NEW-PAY  PIC 99999.99. 
+               05  DIS-BON-PAY  PIC 9999.99. 
        01 HDR-LINE-01. 
-             05  FILLER        PIC X(25) VALUE SPACES. 
-             05  FILLER        PIC X(30) 
+             05  FILLER       PIC X(25) VALUE SPACES. 
+             05  FILLER       PIC X(30) 
                  VALUE 'EMPLOYEE ANNUAL SALARY REPORT'. 
-             05  FILLER        PIC X(25) VALUE SPACES. 
+             05  FILLER       PIC X(25) VALUE SPACES. 
        01 HDR-LINE-02. 
-             05  FILLER        PIC X(25) VALUE SPACES. 
-             05  FILLER        PIC X(30) 
+             05  FILLER       PIC X(25) VALUE SPACES. 
+             05  FILLER       PIC X(30) 
                  VALUE '----------------------------- '. 
-             05  FILLER        PIC X(25) VALUE SPACES. 
-       01 SPC-LINE         PIC X(80) VALUE SPACES. 
+             05  FILLER       PIC X(25) VALUE SPACES. 
+       01 SPC-LINE            PIC X(80) VALUE SPACES. 
        01 DTL-HDR01. 
              05 FILLER        PIC  X(19) VALUE SPACE. 
              05 FILLER        PIC  X(06) VALUE 'EMP-ID'. 
@@ -120,14 +119,14 @@
              05  FILLER       PIC X(30) 
                  VALUE ' END OF ANNUAL SALARY REPORT  '. 
              05  FILLER       PIC X(24) VALUE SPACES. 
-       77 WS-STATUS-INPUT  PIC X(02).
-       77 WS-RECORD-NUM    PIC 99 VALUE 0.
-       77 EMP-ID-BIN       PIC S9(9) USAGE COMP. 
-       77 REG-PAY-PKD      PIC S9(6)V9(2) USAGE COMP-3. 
-       77 BON-PAY-PKD      PIC S9(6)V9(2) USAGE COMP-3. 
-       77 PAY-RAISE-PKD    PIC S9(6)V9(2) USAGE COMP-3. 
-       77 NEW-PAY-PKD      PIC S9(6)V9(2) USAGE COMP-3. 
-       77 NEW-PAY          PIC 99999.99. 
+       77 WS-STATUS-INPUT     PIC X(02).
+       77 WS-RECORD-NUM       PIC 99 VALUE 0.
+       77 EMP-ID-BIN          PIC S9(9) USAGE COMP. 
+       77 REG-PAY-PKD         PIC S9(6)V9(2) USAGE COMP-3. 
+       77 BON-PAY-PKD         PIC S9(6)V9(2) USAGE COMP-3. 
+       77 PAY-RAISE-PKD       PIC S9(6)V9(2) USAGE COMP-3. 
+       77 NEW-PAY-PKD         PIC S9(6)V9(2) USAGE COMP-3. 
+       77 NEW-PAY             PIC 99999.99. 
        PROCEDURE DIVISION. 
            PERFORM P100-INITIALIZATION. 
            PERFORM P200-MAINLINE. 
