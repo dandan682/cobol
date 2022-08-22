@@ -29,7 +29,8 @@
              AT END SET EndOfEmployeeFile TO TRUE
            END-READ
            PERFORM UNTIL EndOfEmployeeFile
-             DISPLAY EmpSSN'-'EmpName'-'EmpDateOfBirth'-'EmpGender 
+             DISPLAY EmployeeDetails ' / ' 
+                EmpSSN'-'EmpName'-'EmpDateOfBirth'-'EmpGender 
              READ EmployeeFile
                AT END SET EndOfEmployeeFile TO TRUE
              END-READ
