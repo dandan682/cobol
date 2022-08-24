@@ -11,16 +11,17 @@
       * Enter solution here
            DISPLAY 'TYPE THE YEAR: ' WITH NO ADVANCING
            ACCEPT WS-YEAR
-           PERFORM UNTIL WS-YEAR = ZEROS 
-               DIVIDE WS-YEAR BY 4 GIVING WS-C REMAINDER WS-R
-               DISPLAY 'WS-C: ' WS-C ' WS-R: ' WS-R
-               DIVIDE WS-YEAR BY 100 GIVING WS-C REMAINDER WS-R
-               DISPLAY 'WS-C: ' WS-C ' WS-R: ' WS-R
-               DIVIDE WS-YEAR BY 400 GIVING WS-C REMAINDER WS-R
-               DISPLAY 'WS-C: ' WS-C ' WS-R: ' WS-R
-               DISPLAY 'TYPE THE YEAR: ' WITH NO ADVANCING
-               ACCEPT WS-YEAR
-           END-PERFORM      
+           PERFORM LEAP-002
            CONTINUE.
        LEAP-EXIT.
-         EXIT.
+         GOBACK.
+       LEAP-002.
+           EVALUATE TRUE                                  
+               WHEN FUNCTION MOD (WS-YEAR 4)   NOT ZERO    
+               WHEN FUNCTION MOD (WS-YEAR 100) =   ZERO    
+                AND FUNCTION MOD (WS-YEAR 400) NOT ZERO    
+                    DISPLAY 'IT IS NOT A LEAP YEAR ' WS-YEAR 
+               WHEN OTHER                                      
+                    DISPLAY 'IT IS A LEAP YEAR     ' WS-YEAR 
+           END-EVALUATE.
+           
