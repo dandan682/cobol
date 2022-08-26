@@ -23,7 +23,7 @@
          RECORD IS VARYING IN SIZE
          DEPENDING ON NameLength.
        01 LongNameRec          PIC X(40).
-         88 EndOfNames         VALUE HIGH-VALUES.
+          88 EndOfNames        VALUE HIGH-VALUES.
          
       
        WORKING-STORAGE SECTION.
@@ -36,11 +36,11 @@
              10 Surname      PIC X(12).
           05 DateOfBirth.
              10 YOB           PIC 9(4).
-          08 MOBandDOB.
+          05 MOBandDOB.
              10 MOB          PIC 99.
              10 DOB          PIC 99.
           05 CourseId        PIC X(5).
-          04 GPA             PIC 9V99.
+          05 GPA             PIC 9V99.
       
        PROCEDURE DIVISION.
        Begin.
