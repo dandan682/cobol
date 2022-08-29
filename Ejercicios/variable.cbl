@@ -25,7 +25,6 @@
        01 LongNameRec          PIC X(40).
           88 EndOfNames        VALUE HIGH-VALUES.
          
-      
        WORKING-STORAGE SECTION.
        01 NameLength           PIC 99.
        01 NameOfFile           PIC X(20).
