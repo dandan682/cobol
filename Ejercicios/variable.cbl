@@ -29,17 +29,17 @@
        01 NameLength           PIC 99.
        01 NameOfFile           PIC X(20).
        01 StudentRec.
-          05 StudentId       PIC 9(7).
+          05 StudentId         PIC 9(7).
           05 StudentName.
-             10 Forename     PIC X(9).
-             10 Surname      PIC X(12).
+             10 Forename       PIC X(9).
+             10 Surname        PIC X(12).
           05 DateOfBirth.
-             10 YOB           PIC 9(4).
+             10 YOB            PIC 9(4).
           05 MOBandDOB.
-             10 MOB          PIC 99.
-             10 DOB          PIC 99.
-          05 CourseId        PIC X(5).
-          05 GPA             PIC 9V99.
+             10 MOB            PIC 99.
+             10 DOB            PIC 99.
+          05 CourseId          PIC X(5).
+          05 GPA               PIC 9V99.
       
        PROCEDURE DIVISION.
        Begin.
