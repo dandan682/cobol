@@ -9,7 +9,6 @@
       * to extract only the characters in the name from the record buffer
       * from the record buffer.
       
-      
        ENVIRONMENT DIVISION.
        INPUT-OUTPUT SECTION.
        FILE-CONTROL.
