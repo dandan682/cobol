@@ -1,1 +1,19 @@
        IDENTIFICATION DIVISION.
+       PROGRAM-ID.     REVERSE.
+       DATA DIVISION. 
+       WORKING-STORAGE SECTION. 
+       01 WS-VAR1         PIC X(19) VALUE 'MAINFRAME DEVELOPER'.
+       01 WS-OUT          PIC X(19).
+       01 WS-IDX1         PIC 9(02) VALUE ZERO.
+       01 WS-IDX2         PIC 9(02) VALUE 1.
+       01 WS-LEN          PIC 9(02) VALUE ZERO.
+       PROCEDURE DIVISION.
+           MOVE LENGTH OF WS-VAR1 TO WS-LEN 
+           PERFORM VARYING WS-IDX1 FROM WS-LEN BY -1 UNTIL WS-IDX1 <= 0
+              MOVE WS-VAR1(WS-IDX1:1) TO WS-OUT(WS-IDX2:1)
+              ADD 1 TO WS-IDX2 
+           END-PERFORM
+           DISPLAY 'STRING ORIGINAL: ' WS-VAR1 
+           DISPLAY 'STRING REVERSED IS: ' WS-OUT  
+           GOBACK.
+           
