@@ -7,10 +7,19 @@
           02 WS-A2     PIC X(5) VALUE '05/27'.
           02 WS-A3     PIC X(5) VALUE '/2014'.
        66 WS-A1A2A3 RENAMES WS-A1 THRU WS-A3.
+       01 EMP-REC.
+          05 EMP-REC-LY.
+             10 EMP-FNAME       PIC X(15) VALUE 'DANIEL'.
+             10 EMP-LNAME       PIC X(10) VALUE 'CASTRO'.
+             10 EMP-PH-NO       PIC 9(10) VALUE 2899680723.
+       66 EMP-PER-INFO RENAMES EMP-FNAME THRU EMP-LNAME.
+       66 EMP-CONCT-NO RENAMES EMP-PH-NO.
        PROCEDURE DIVISION.
        MAIN-PARA.
            DISPLAY WS-A1 
            DISPLAY WS-A2 
            DISPLAY WS-A3 
            DISPLAY WS-A1A2A3  
+           DISPLAY EMP-PER-INFO
+           DISPLAY EMP-CONCT-NO.
            GOBACK.
