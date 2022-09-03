@@ -4,7 +4,19 @@
        WORKING-STORAGE SECTION. 
        01 WS-NUM1         PIC 99 VALUE 10.
        01 WS-NUM2         PIC 99 VALUE 65.
+       01 WS-NUM3         PIC 99 VALUE 0.
        01 WS-RESUL        PIC 99 VALUE ZEROES.
        PROCEDURE DIVISION.
-       
+           DISPLAY 'ADD WS-NUM1 WS-NUM2: ' WS-NUM1 ' ' WS-NUM2   
+           ADD WS-NUM1 TO WS-NUM2 GIVING WS-RESUL
+           DISPLAY 'ADD RESULTADO: ' WS-RESUL  
+
+           ADD WS-NUM1 TO WS-NUM2, WS-NUM3 
+           DISPLAY 'ADD WS-NUM1 TO WS-NUM2 WS-NUM3: '
+                    WS-NUM2 ' ' WS-NUM3   
+      *>
+           DISPLAY 'VALORES WS-NUM1 WS-NUM2: ' WS-NUM1 ' ' WS-NUM2   
+           SUBTRACT WS-NUM1 FROM WS-NUM2 GIVING WS-RESUL 
+           DISPLAY 'SUBTRACT RESULTADO: ' WS-RESUL  
+
            GOBACK.
