@@ -14,7 +14,7 @@
            ADD WS-NUM1 TO WS-NUM2, WS-NUM3 
            DISPLAY 'ADD WS-NUM1 TO WS-NUM2 WS-NUM3: '
                     WS-NUM2 ' ' WS-NUM3   
-      *>
+
            DISPLAY 'VALORES WS-NUM1 WS-NUM2: ' WS-NUM1 ' ' WS-NUM2   
            SUBTRACT WS-NUM1 FROM WS-NUM2 GIVING WS-RESUL 
            DISPLAY 'SUBTRACT RESULTADO: ' WS-RESUL  
