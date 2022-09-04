@@ -18,5 +18,6 @@
            DISPLAY 'VALORES WS-NUM1 WS-NUM2: ' WS-NUM1 ' ' WS-NUM2   
            SUBTRACT WS-NUM1 FROM WS-NUM2 GIVING WS-RESUL 
            DISPLAY 'SUBTRACT RESULTADO: ' WS-RESUL  
-
+           
+           
            GOBACK.
