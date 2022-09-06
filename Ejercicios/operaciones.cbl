@@ -11,6 +11,8 @@
            ADD WS-NUM1 TO WS-NUM2 GIVING WS-RESUL
            DISPLAY 'ADD RESULTADO: ' WS-RESUL  
 
+
+
            ADD WS-NUM1 TO WS-NUM2, WS-NUM3 
            DISPLAY 'ADD WS-NUM1 TO WS-NUM2 WS-NUM3: '
                     WS-NUM2 ' ' WS-NUM3   
