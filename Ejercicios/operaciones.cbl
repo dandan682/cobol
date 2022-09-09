@@ -6,7 +6,7 @@
        01 WS-NUM2         PIC 99 VALUE 65.
        01 WS-NUM3         PIC 99 VALUE 0.
        01 WS-RESUL        PIC 999 VALUE ZEROES.
-       
+        
        PROCEDURE DIVISION.
        
            DISPLAY 'ADD WS-NUM1 WS-NUM2: ' WS-NUM1 ' ' WS-NUM2   
