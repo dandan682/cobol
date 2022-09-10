@@ -6,6 +6,13 @@
        01  STUDENT-MAARK-1            PIC 999.
        01  STUDENT-MAARK-2            PIC 999.
        01  A                          PIC 99.
+       01  KODE                       PIC 9.
+           88 ADD-RECORD              VALUE 1.
+           88 DELETE-RECORD           VALUE 2.
+           88 ADDRESS-CHANGE          VALUE 3.
+           88 NAME-CHANGE             VALUE 4.
+           88 CREDIT-CHANGE           VALUE 5.
+           88 CODE-ERROR              VALUE 0 6 THRU 9.
        PROCEDURE DIVISION.
       *    EVALUATE COMPLEJO
            DISPLAY 'ENTER STUDENT NAME'
@@ -34,4 +41,34 @@
               WHEN OTHER
                  DISPLAY 'IINVALID VALUE OF A'
            END-EVALUATE 
+      *    
+           EVALUATE KODE
+              WHEN 1               PERFORM ADDITION
+              WHEN 2               PERFORM DELETION
+              WHEN 3               PERFORM CHANGE-ADDRESS
+              WHEN 4               PERFORM CHANGE-NAME
+              WHEN 5               PERFORM CHANGE-CREDIT
+              WHEN OTHER           PERFORM ERROR-CODE              WHEN      
+           END-EVALUATE
+      *     
+           EVALUATE TRUE
+              WHEN ADD-RECORD      PERFORM ADDITION
+              WHEN DELETE-RECORD   PERFORM DELETION
+              WHEN ADDRESS-CHANGE  PERFORM CHANGE-ADDRESS
+              WHEN NAME-CHANGE     PERFORM CHANGE-NAME
+              WHEN CREDIT-CHANGE   PERFORM CHANGE-CREDIT
+              WHEN OTHER           PERFORM ERROR-CODE
+           END-EVALUATE
+       ADDITION.
+           DISPLAY 'ADDITION'
+       DELETION.
+           DISPLAY 'DELETION'
+       CHANGE-ADDRESS.
+           DISPLAY 'CHANGE-ADDRESS'
+       CHANGE-NAME.
+           DISPLAY 'CHANGE-NAME'
+       CHANGE-CREDIT.
+           DISPLAY CHANGE-CREDIT
+       ERROR-CODE.
+           DISPLAY ERROR-CODE
            GOBACK.
