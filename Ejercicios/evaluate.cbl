@@ -54,6 +54,7 @@
            END-EVALUATE
       *     
            EVALUATE TRUE
+              WHEN ANY             DISPLAY 'ANY'
               WHEN ADD-RECORD      PERFORM ADDITION
               WHEN DELETE-RECORD   PERFORM DELETION
               WHEN ADDRESS-CHANGE  PERFORM CHANGE-ADDRESS
