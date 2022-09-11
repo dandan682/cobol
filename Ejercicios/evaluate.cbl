@@ -3,8 +3,8 @@
        DATA DIVISION.
        WORKING-STORAGE SECTION. 
        01  STUDENT-NAME               PIC X(20).
-       01  STUDENT-MAARK-1            PIC 999.
-       01  STUDENT-MAARK-2            PIC 999.
+       01  STUDENT-MARK-1             PIC 999.
+       01  STUDENT-MARK-2             PIC 999.
        01  A                          PIC 99.
        01  KODE                       PIC 9.
            88 ADD-RECORD              VALUE 1.
@@ -17,11 +17,11 @@
       *    EVALUATE COMPLEJO
            DISPLAY 'ENTER STUDENT NAME'
            ACCEPT STUDENT-NAME
-           DISPLAY 'GRADE 1:'
-           ACCEPT STUDENT-MAARK-1
-           DISPLAY 'GRADE 2:'
-           ACCEPT STUDENT-MAARK-2
-           EVALUATE (STUDENT-MAARK-1 + STUDENT-MAARK-2) / 2
+           DISPLAY 'GRADE 1 (40 A 100):'
+           ACCEPT STUDENT-MARK-1
+           DISPLAY 'GRADE 2 (40 A 100):'
+           ACCEPT STUDENT-MARK-2
+           EVALUATE (STUDENT-MARK-1 + STUDENT-MARK-2) / 2
               WHEN 40 THRU 49.9 DISPLAY 'THIRD CLASS'
               WHEN 50 THRU 59.9 DISPLAY 'LOWER SECOND'
               WHEN 60 THRU 69.9 DISPLAY 'UPPER SECOND'
@@ -29,7 +29,7 @@
               WHEN OTHER        DISPLAY 'PROG OR DATA ERROR!'
            END-EVALUATE
       *    EVALUATE SIMPLE
-           DISPLAY 'VALUE OF A:'
+           DISPLAY 'VALUE OF A (NUMERIC):'
            ACCEPT A
            EVALUATE TRUE 
               WHEN A > 10
@@ -39,16 +39,18 @@
               WHEN A > 0
                  DISPLAY 'A IS GREATER THAH 0 BUT LES THAN 5'
               WHEN OTHER
-                 DISPLAY 'IINVALID VALUE OF A'
+                 DISPLAY 'INVALID VALUE OF A'
            END-EVALUATE 
       *    
+           DISPLAY 'KODE ACCTION (DE 1 A 5): ' WITH NO ADVANCING 
+           ACCEPT KODE 
            EVALUATE KODE
               WHEN 1               PERFORM ADDITION
               WHEN 2               PERFORM DELETION
               WHEN 3               PERFORM CHANGE-ADDRESS
               WHEN 4               PERFORM CHANGE-NAME
               WHEN 5               PERFORM CHANGE-CREDIT
-              WHEN OTHER           PERFORM ERROR-CODE              WHEN      
+              WHEN OTHER           PERFORM ERROR-CODE                    
            END-EVALUATE
       *     
            EVALUATE TRUE
@@ -59,16 +61,16 @@
               WHEN CREDIT-CHANGE   PERFORM CHANGE-CREDIT
               WHEN OTHER           PERFORM ERROR-CODE
            END-EVALUATE
-       ADDITION.
-           DISPLAY 'ADDITION'
-       DELETION.
-           DISPLAY 'DELETION'
-       CHANGE-ADDRESS.
-           DISPLAY 'CHANGE-ADDRESS'
-       CHANGE-NAME.
-           DISPLAY 'CHANGE-NAME'
-       CHANGE-CREDIT.
-           DISPLAY CHANGE-CREDIT
-       ERROR-CODE.
-           DISPLAY ERROR-CODE
            GOBACK.
+       ADDITION.
+           DISPLAY 'ADDITION'.
+       DELETION.
+           DISPLAY 'DELETION'.
+       CHANGE-ADDRESS.
+           DISPLAY 'CHANGE-ADDRESS'.
+       CHANGE-NAME.
+           DISPLAY 'CHANGE-NAME'.
+       CHANGE-CREDIT.
+           DISPLAY 'CHANGE-CREDIT'.
+       ERROR-CODE.
+           DISPLAY 'ERROR-CODE'.
