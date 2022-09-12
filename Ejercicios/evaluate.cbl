@@ -5,7 +5,7 @@
        01  STUDENT-NAME               PIC X(20).
        01  STUDENT-MARK-1             PIC 999.
        01  STUDENT-MARK-2             PIC 999.
-       01  A                          PIC 99.
+       01  A                          PIC 999.
        01  KODE                       PIC 9.
            88 ADD-RECORD              VALUE 1.
            88 DELETE-RECORD           VALUE 2.
@@ -31,6 +31,7 @@
       *    EVALUATE SIMPLE
            DISPLAY 'VALUE OF A (NUMERIC):'
            ACCEPT A
+           DISPLAY 'VALOR DE A:*' A '*'
            EVALUATE TRUE 
               WHEN A > 10
                  DISPLAY 'A IS GREATER THAN 10'
