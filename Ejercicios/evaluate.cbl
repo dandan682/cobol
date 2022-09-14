@@ -15,6 +15,7 @@
            88 CODE-ERROR              VALUE 0 6 THRU 9.
        PROCEDURE DIVISION.
       *    EVALUATE COMPLEJO
+      
            DISPLAY 'ENTER STUDENT NAME'
            ACCEPT STUDENT-NAME
            DISPLAY 'GRADE 1 (40 A 100):'
