@@ -29,7 +29,7 @@
               WHEN 70 THRU 100  DISPLAY 'FIRST CLASS'
               WHEN OTHER        DISPLAY 'PROG OR DATA ERROR!'
            END-EVALUATE
-           
+
       *    EVALUATE SIMPLE
            DISPLAY 'VALUE OF A (NUMERIC):'
            ACCEPT A
@@ -66,6 +66,7 @@
               WHEN OTHER           PERFORM ERROR-CODE
            END-EVALUATE
            GOBACK.
+           
        ADDITION.
            DISPLAY 'ADDITION'.
        DELETION.
