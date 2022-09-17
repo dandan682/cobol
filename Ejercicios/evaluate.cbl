@@ -44,7 +44,8 @@
               WHEN OTHER
                  DISPLAY 'INVALID VALUE OF A'
            END-EVALUATE 
-      *    
+           
+      *    EVALUATE IDENTIFIER
            DISPLAY 'KODE ACCTION (DE 1 A 5): ' WITH NO ADVANCING 
            ACCEPT KODE 
            EVALUATE KODE
@@ -55,7 +56,8 @@
               WHEN 5               PERFORM CHANGE-CREDIT
               WHEN OTHER           PERFORM ERROR-CODE                    
            END-EVALUATE
-      *     
+
+      *    EVALUATE 88
            EVALUATE TRUE
               WHEN ANY             DISPLAY 'ANY'
               WHEN ADD-RECORD      PERFORM ADDITION
@@ -66,7 +68,7 @@
               WHEN OTHER           PERFORM ERROR-CODE
            END-EVALUATE
            GOBACK.
-           
+
        ADDITION.
            DISPLAY 'ADDITION'.
        DELETION.
