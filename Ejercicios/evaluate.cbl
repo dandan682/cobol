@@ -47,7 +47,7 @@
            
       *    EVALUATE IDENTIFIER
       
-           DISPLAY 'KODE ACCTION (DE 1 A 5): ' WITH NO ADVANCING 
+           DISPLAY 'KODE ACCTION (DE 1 A 5): '  WITH NO ADVANCING 
            ACCEPT KODE 
            EVALUATE KODE
               WHEN 1               PERFORM ADDITION
