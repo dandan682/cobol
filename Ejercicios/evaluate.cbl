@@ -13,6 +13,7 @@
            88 NAME-CHANGE             VALUE 4.
            88 CREDIT-CHANGE           VALUE 5.
            88 CODE-ERROR              VALUE 0 6 THRU 9.
+           
        PROCEDURE DIVISION.
       *    EVALUATE COMPLEJO
 
