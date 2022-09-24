@@ -1,6 +1,4 @@
        IDENTIFICATION DIVISION.
-       
-       
        PROGRAM-ID.     EVAL01.
        DATA DIVISION.
        WORKING-STORAGE SECTION. 
