@@ -1,7 +1,6 @@
        IDENTIFICATION DIVISION.
        PROGRAM-ID.     EVAL01.
        DATA DIVISION.
-       
        WORKING-STORAGE SECTION. 
        01  STUDENT-NAME               PIC X(20).
        01  STUDENT-MARK-1             PIC 999.
