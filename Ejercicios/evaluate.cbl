@@ -2,6 +2,7 @@
        PROGRAM-ID.     EVAL01.
        DATA DIVISION.
        WORKING-STORAGE SECTION. 
+       
        01  STUDENT-NAME               PIC X(20).
        01  STUDENT-MARK-1             PIC 999.
        01  STUDENT-MARK-2             PIC 999.
@@ -14,7 +15,7 @@
            88 CREDIT-CHANGE           VALUE 5.
            88 CODE-ERROR              VALUE 0 6 THRU 9.
        PROCEDURE DIVISION.
-       
+
       *    EVALUATE COMPLEJO
 
            DISPLAY 'ENTER STUDENT NAME'
