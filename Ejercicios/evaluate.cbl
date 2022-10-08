@@ -73,9 +73,10 @@
 
        ADDITION.
            DISPLAY 'ADDITION'.
-           
+
        DELETION.
            DISPLAY 'DELETION'.
+           
        CHANGE-ADDRESS.
            DISPLAY 'CHANGE-ADDRESS'.
        CHANGE-NAME.
