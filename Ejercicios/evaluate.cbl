@@ -76,9 +76,10 @@
 
        DELETION.
            DISPLAY 'DELETION'.
-           
+
        CHANGE-ADDRESS.
            DISPLAY 'CHANGE-ADDRESS'.
+           
        CHANGE-NAME.
            DISPLAY 'CHANGE-NAME'.
        CHANGE-CREDIT.
