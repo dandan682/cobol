@@ -79,9 +79,10 @@
 
        CHANGE-ADDRESS.
            DISPLAY 'CHANGE-ADDRESS'.
-           
+
        CHANGE-NAME.
            DISPLAY 'CHANGE-NAME'.
+           
        CHANGE-CREDIT.
            DISPLAY 'CHANGE-CREDIT'.
        ERROR-CODE.
