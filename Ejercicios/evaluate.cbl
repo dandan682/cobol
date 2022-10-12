@@ -82,9 +82,7 @@
 
        CHANGE-NAME.
            DISPLAY 'CHANGE-NAME'.
-
        CHANGE-CREDIT.
            DISPLAY 'CHANGE-CREDIT'.
-
        ERROR-CODE.
            DISPLAY 'ERROR-CODE'.
