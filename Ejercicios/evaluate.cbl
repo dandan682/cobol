@@ -70,7 +70,6 @@
               WHEN OTHER           PERFORM ERROR-CODE
            END-EVALUATE
            GOBACK.
-
        ADDITION.
            DISPLAY 'ADDITION'.
        DELETION.
