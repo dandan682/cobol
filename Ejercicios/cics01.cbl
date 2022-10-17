@@ -9,6 +9,7 @@
            PERFORM 2000-PROCESO.
            PERFORM 3000-FIN.
            GOBACK.
+           
        1000-INICIO.
       * INICIALIZAMOS LA VARIABLE DE SALIDA.
            MOVE 'HOLA MUNDO' TO WS-SALIDA.
@@ -22,4 +23,3 @@
        3000-FIN.
       * DEVOLVEMOS EL CONTROL AL CICS
            EXEC CICS RETURN END-EXEC.
-           
