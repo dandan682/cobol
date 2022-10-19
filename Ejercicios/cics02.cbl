@@ -7,9 +7,11 @@
       * DEL TEXTO 
           05 FILLER       PIC X(4).
           05 WS-MENSAJE-E PIC X(70).
+      *
        01 WS-SALIDA.
           05 WS-TEXTO     PIC X(8).
           05 WS-MENSAJE-S PIC X(70).
+          
        PROCEDURE DIVISION.
            PERFORM 1000-INICIO.
            PERFORM 2000-PROCESO.
@@ -36,7 +38,7 @@
               LENGTH (LENGTH OF WS-SALIDA)
               ERASE               
            END-EXEC.
-           
+
        3000-FIN.
       * DEVOLVEMOS EL CONTROL AL CICS
            EXEC CICS RETURN END-EXEC.
