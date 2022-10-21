@@ -33,6 +33,7 @@
       * MOVEMOS LA ENTRADA A LA SALIDA
            MOVE WS-MENSAJE-E TO WS-MENSAJE-S 
            MOVE 'SALIDA :'   TO WS-TEXTO 
+           
       * ENVIAMOS LA VARIABLE AL CICS
            EXEC CICS SEND 
               FROM (WS-SALIDA)
