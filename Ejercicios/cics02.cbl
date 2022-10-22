@@ -33,13 +33,15 @@
       * MOVEMOS LA ENTRADA A LA SALIDA
            MOVE WS-MENSAJE-E TO WS-MENSAJE-S 
            MOVE 'SALIDA :'   TO WS-TEXTO 
-           
+
       * ENVIAMOS LA VARIABLE AL CICS
            EXEC CICS SEND 
               FROM (WS-SALIDA)
               LENGTH (LENGTH OF WS-SALIDA)
               ERASE               
            END-EXEC.
+
+           
 
        3000-FIN.
       * DEVOLVEMOS EL CONTROL AL CICS
