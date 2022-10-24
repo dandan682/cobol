@@ -41,8 +41,6 @@
               ERASE               
            END-EXEC.
 
-           
-
        3000-FIN.
       * DEVOLVEMOS EL CONTROL AL CICS
            EXEC CICS RETURN END-EXEC.
