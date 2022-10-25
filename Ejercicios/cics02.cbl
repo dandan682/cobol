@@ -30,6 +30,7 @@
            END-EXEC.
 
        2000-PROCESO.
+
       * MOVEMOS LA ENTRADA A LA SALIDA
            MOVE WS-MENSAJE-E TO WS-MENSAJE-S 
            MOVE 'SALIDA :'   TO WS-TEXTO 
