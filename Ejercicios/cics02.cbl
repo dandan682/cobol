@@ -5,7 +5,6 @@
        
        01 WS-ENTRADA.
 
-       
       * EN EL FILLER RECIBE EL CODIGO DE TRANSACCION Y LAS COORDENADAS
       * DEL TEXTO 
           05 FILLER       PIC X(4).
