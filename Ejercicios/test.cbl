@@ -1,2 +1,4 @@
        IDENTIFICATION DIVISION. 
+       DATA DIVISION.
+       PROCEDURE DIVISION.
            GOBACK.       
